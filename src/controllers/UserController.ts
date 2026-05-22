@@ -1,31 +1,34 @@
+import type { IUser } from "../interfaces/IUser.js";
 import { UserService } from "../services/UserService.js";
 
 export class UserController {
-
   private userService: UserService;
 
   constructor(userService: UserService) {
     this.userService = userService;
   }
 
-  async createUser(): Promise<void> {
-
-    const user = await this.userService.registerUser(
-      "Alex",
-      "alex@gmail.com"
-    );
-
-    console.log("User Created:");
-
-    console.log(user);
+  async create(name: string, email: string): Promise<IUser> {
+    return await this.userService.registerUser(name, email);
   }
 
-  async getAllUsers(): Promise<void> {
+  async list(): Promise<IUser[]> {
+    return await this.userService.getAllUsers();
+  }
 
-    const users = await this.userService.getAllUsers();
+  async getOne(id: string): Promise<IUser> {
+    return await this.userService.getUserById(id);
+  }
 
-    console.log("All Users:");
+  async update(
+    id: string,
+    update: { name?: string; email?: string }
+  ): Promise<IUser> {
+    return await this.userService.updateUser(id, update);
+  }
 
-    console.log(users);
+  async remove(id: string): Promise<{ deleted: true; id: string }> {
+    return await this.userService.deleteUser(id);
   }
 }
+
