@@ -1,17 +1,30 @@
 {
   "name": "ts-oop-backend-practice",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Production-ready starter project demonstrating clean architecture patterns for Node.js/TypeScript backends",
+  "main": "dist/app.js",
   "scripts": {
     "dev": "nodemon --watch src --ext ts --exec tsx src/app.ts",
     "build": "tsc",
-    "start": "node dist/main.js"
+    "start": "node dist/app.js",
+    "lint": "echo 'Linting not configured yet'"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "typescript",
+    "express",
+    "backend",
+    "architecture",
+    "clean-code",
+    "starter-project",
+    "oop",
+    "nodejs"
+  ],
+  "author": "Sumit Rai",
   "license": "ISC",
   "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.9.1",
